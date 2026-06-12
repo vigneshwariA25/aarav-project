@@ -56,33 +56,74 @@ export default function Navbar() {
           />
         )}
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+        {/* RESPONSIVENESS: Added px-3 for smaller screens, ensure items-center and justify-between for the 3 elements */}
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-10 flex items-center justify-between w-full">
 
           {/* ── Logo ── */}
           <a
             href="#home"
             id="navbar-logo"
-            className="flex items-center gap-3 group"
+            // RESPONSIVENESS: flex-shrink-0 to prevent collision, adjusted gap
+            className="flex items-center gap-2 sm:gap-3 group flex-shrink-0"
             onClick={(e) => { e.preventDefault(); handleNav('#home') }}
           >
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(212,163,77,0.4)]"
+              // RESPONSIVENESS: Scaled down logo mark on mobile
+              className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(212,163,77,0.4)]"
               style={{ border: '1px solid rgba(212,163,77,0.45)', background: 'rgba(212,163,77,0.06)' }}
             >
-              <span className="font-cormorant text-[#D4A34D] text-lg font-semibold leading-none">A</span>
+              <span className="font-cormorant text-[#D4A34D] text-sm sm:text-lg font-semibold leading-none">A</span>
             </div>
-            <div>
-              <p className="font-cormorant text-[#F2E8DA] text-lg font-semibold leading-none tracking-wide group-hover:text-[#D4A34D] transition-colors duration-300">
+            <div className="flex flex-col justify-center">
+              {/* RESPONSIVENESS: Scaled down typography to fit center badge */}
+              <p className="font-cormorant text-[#F2E8DA] text-[15px] sm:text-lg font-semibold leading-none tracking-wide group-hover:text-[#D4A34D] transition-colors duration-300">
                 Aarav
               </p>
               <p
-                className="font-outfit text-[9px] tracking-[0.22em] uppercase leading-none mt-0.5"
+                className="font-outfit text-[7px] sm:text-[9px] tracking-[0.2em] sm:tracking-[0.22em] uppercase leading-none mt-0.5"
                 style={{ color: 'rgba(212,163,77,0.65)' }}
               >
                 Wedding Hall
               </p>
             </div>
           </a>
+
+          {/* ── Mobile Announcement Badge (Center) ── */}
+          {/* RESPONSIVENESS: flex-1 and min-w-0 allows fluid width without forcing fixed sizes. Hidden on lg to preserve desktop design. */}
+          <div className="flex lg:hidden flex-1 min-w-0 justify-center px-1.5 sm:px-4">
+            <div
+              className="flex items-center justify-center gap-1.5 sm:gap-2 px-2 py-1.5 w-full max-w-[160px] sm:max-w-[220px]"
+              style={{
+                background: 'rgba(212,163,77,0.05)',
+                border: '1px solid rgba(212,163,77,0.2)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                borderRadius: '2px'
+              }}
+            >
+              <span
+                className="w-1 h-1 rounded-full flex-shrink-0 hidden sm:block"
+                style={{ background: '#D4A34D', boxShadow: '0 0 8px rgba(212,163,77,0.9)' }}
+              />
+              <p
+                // RESPONSIVENESS: Balanced wrapping, proper line breaks, consistent letter spacing
+                className="font-outfit text-center leading-[1.35] truncate whitespace-normal"
+                style={{
+                  letterSpacing: '0.12em',
+                  fontSize: '0.45rem',
+                  color: 'rgba(212,163,77,0.90)',
+                  textTransform: 'uppercase',
+                  fontWeight: 400,
+                }}
+              >
+                Coimbatore's<br/>Finest Wedding<br/>Venue
+              </p>
+              <span
+                className="w-1 h-1 rounded-full flex-shrink-0 hidden sm:block"
+                style={{ background: '#D4A34D', boxShadow: '0 0 8px rgba(212,163,77,0.9)' }}
+              />
+            </div>
+          </div>
 
           {/* ── Desktop Nav Links ── */}
           <ul className="hidden lg:flex items-center gap-10">
@@ -98,8 +139,9 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* ── Right Side ── */}
-          <div className="flex items-center gap-4">
+          {/* ── Right Side (Menu & Button) ── */}
+          {/* RESPONSIVENESS: flex-shrink-0 ensures hamburger touch area is preserved */}
+          <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
             <button
               id="navbar-book-btn"
               onClick={() => handleNav('#contact')}
@@ -113,11 +155,12 @@ export default function Navbar() {
             <button
               id="navbar-menu-toggle"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden flex flex-col gap-[5px] p-2"
+              // RESPONSIVENESS: Reduced padding slightly to maximize space on 320px screens
+              className="lg:hidden flex flex-col gap-[4px] sm:gap-[5px] p-1.5 sm:p-2"
               aria-label="Toggle menu"
             >
               <motion.span
-                animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
                 className="block w-5 h-px"
                 style={{ background: '#D4A34D' }}
               />
@@ -127,7 +170,7 @@ export default function Navbar() {
                 style={{ background: '#D4A34D' }}
               />
               <motion.span
-                animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
                 className="block w-5 h-px"
                 style={{ background: '#D4A34D' }}
               />

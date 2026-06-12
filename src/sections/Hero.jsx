@@ -242,12 +242,13 @@ export default function Hero() {
         <div className="max-w-[560px]">
 
           {/* ── PRE-TITLE BADGE ── */}
+          {/* RESPONSIVENESS: Hidden on mobile since it is moved to the Navbar, preserved on desktop */}
           <motion.div
             custom={0}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="flex items-center gap-4 mb-10"
+            className="hidden lg:flex items-center gap-4 mb-10"
           >
             <motion.div
               className="h-px w-10"
