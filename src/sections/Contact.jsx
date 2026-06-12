@@ -123,25 +123,30 @@ export default function Contact() {
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+      {/* RESPONSIVENESS: Adjusted mobile side padding px-4 to px-6 on larger screens */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         <SectionHeader
           label="Get In Touch"
           title={<>Begin Your<br /><span className="italic gold-text">Celebration Story</span></>}
           subtitle="Reach out to our team and let us start crafting your perfect day together."
         />
 
-        <div className="grid lg:grid-cols-5 gap-16 lg:gap-60 mt-16">
+        {/* RESPONSIVENESS: 
+            - Reduced gap on lg to prevent horizontal overflow on standard desktops
+            - Adjusted spacing for mobile (gap-10 sm:gap-12 lg:gap-16 xl:gap-24)
+        */}
+        <div className="grid lg:grid-cols-5 gap-10 sm:gap-12 lg:gap-16 xl:gap-24 mt-12 sm:mt-16">
 
           {/* ── Info Side ── */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-6 sm:space-y-8">
             <FadeUp>
               <div
-                className="p-7 relative overflow-hidden"
+                // RESPONSIVENESS: Adjusted padding for mobile: 'p-5 sm:p-7'
+                className="p-5 sm:p-7 relative overflow-hidden rounded-[2px]"
                 style={{
                   background: 'rgba(10,5,7,0.6)',
                   backdropFilter: 'blur(30px)',
                   border: '1px solid rgba(212,163,77,0.15)',
-                  borderRadius: '2px',
                 }}
               >
                 <div
@@ -162,15 +167,16 @@ export default function Contact() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex gap-4 group"
+                      // RESPONSIVENESS: Adjusted gap for mobile touch targets 'gap-3 sm:gap-4'
+                      className="flex gap-3 sm:gap-4 group items-center"
                     >
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
-                        className="w-11 h-11 flex-shrink-0 flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_24px_rgba(212,163,77,0.3)]"
+                        // RESPONSIVENESS: Scaled down icon container on very small screens
+                        className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 flex items-center justify-center transition-all duration-300 group-hover:shadow-[0_0_24px_rgba(212,163,77,0.3)] rounded-[1px]"
                         style={{
                           background: 'rgba(212,163,77,0.08)',
                           border: '1px solid rgba(212,163,77,0.2)',
-                          borderRadius: '1px',
                         }}
                       >
                         <Icon className="text-[#D4A34D] text-base" />
@@ -201,17 +207,18 @@ export default function Contact() {
                 href="https://wa.me/919655501679"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 w-full p-4 transition-all duration-300 group"
+                // RESPONSIVENESS: Adjusted padding and gap for mobile touch targets
+                className="flex items-center gap-3 sm:gap-4 w-full p-3 sm:p-4 transition-all duration-300 group rounded-[1px]"
                 style={{
                   background: 'rgba(37,211,102,0.07)',
                   border: '1px solid rgba(37,211,102,0.18)',
-                  borderRadius: '1px',
                   backdropFilter: 'blur(20px)',
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(37,211,102,0.13)'; e.currentTarget.style.borderColor = 'rgba(37,211,102,0.3)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(37,211,102,0.1)' }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(37,211,102,0.07)'; e.currentTarget.style.borderColor = 'rgba(37,211,102,0.18)'; e.currentTarget.style.boxShadow = 'none' }}
               >
                 <div
+                  // RESPONSIVENESS: Consistent icon sizing
                   className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full"
                   style={{ background: 'rgba(37,211,102,0.12)' }}
                 >
@@ -231,15 +238,17 @@ export default function Contact() {
             {/* Map */}
             <FadeUp delay={0.3}>
               <motion.div
-                className="overflow-hidden"
-                style={{ borderRadius: '2px', border: '1px solid rgba(212,163,77,0.15)' }}
+                // RESPONSIVENESS: Ensured full width without overflow
+                className="overflow-hidden rounded-[2px] w-full"
+                style={{ border: '1px solid rgba(212,163,77,0.15)' }}
                 whileHover={{ boxShadow: '0 0 40px rgba(212,163,77,0.12)', borderColor: 'rgba(212,163,77,0.3)' }}
                 transition={{ duration: 0.3 }}
               >
                 <iframe
                   src="https://maps.google.com/maps?q=Aarav+Wedding+Hall+Coimbatore&output=embed"
                   width="100%"
-                  height="240"
+                  // RESPONSIVENESS: Taller map on mobile for easier interaction, standard on desktop
+                  className="h-[200px] sm:h-[240px] w-full"
                   style={{ border: 0, filter: 'grayscale(0.4) brightness(0.7) contrast(1.1) sepia(0.15)', display: 'block' }}
                   allowFullScreen=""
                   loading="lazy"
@@ -255,13 +264,15 @@ export default function Contact() {
             <FadeUp delay={0.1}>
               <form
                 onSubmit={submit}
-                className="p-8 space-y-5 relative overflow-hidden"
+                // RESPONSIVENESS:
+                // - Changed fixed width '600px' to 'w-full max-w-[600px] mx-auto'
+                // - Adjusted padding for mobile: 'p-6 sm:p-8'
+                // - Adjusted border radius for mobile: 'rounded-[24px] sm:rounded-[45px]'
+                className="w-full max-w-[600px] mx-auto p-6 sm:p-8 space-y-4 sm:space-y-5 relative overflow-hidden rounded-[24px] sm:rounded-[45px]"
                 style={{
                   background: 'rgba(10,5,7,0.7)',
                   backdropFilter: 'blur(40px)',
                   border: '1px solid rgba(212,163,77,0.2)',
-                  borderRadius: '45px',
-                  width: '600px',
                   boxShadow: '0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,163,77,0.1)',
                 }}
               >
@@ -272,7 +283,7 @@ export default function Contact() {
 
                 <div className="h-px w-full mb-6 relative z-10" style={{ background: 'linear-gradient(90deg, #D4A34D, rgba(212,163,77,0.3), transparent)' }} />
 
-                <div className="grid sm:grid-cols-2 gap-5 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 relative z-10">
                   <div>
                     <label className="font-outfit text-[10px] tracking-[0.22em] uppercase block mb-2" style={{ color: 'rgba(212,163,77,0.55)' }}>
                       Full Name *
@@ -315,7 +326,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-5 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 relative z-10">
                   <div>
                     <label className="font-outfit text-[10px] tracking-[0.22em] uppercase block mb-2" style={{ color: 'rgba(212,163,77,0.55)' }}>
                       Event Type *
@@ -366,7 +377,7 @@ export default function Contact() {
                   type="submit"
                   whileHover={{ scale: 1.01, boxShadow: '0 0 50px rgba(212,163,77,0.4)' }}
                   whileTap={{ scale: 0.99 }}
-                  className="btn-gold w-full text-sm relative z-10"
+                  className="btn-gold w-full text-sm sm:text-base relative z-10 mt-2 sm:mt-0"
                   style={{ padding: '1.1rem' }}
                 >
                   {sent ? '✓ Message Sent — We\'ll Be In Touch Shortly' : 'Send Your Enquiry'}
