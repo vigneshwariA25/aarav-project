@@ -91,12 +91,9 @@ export default function Hero() {
       >
         {/* ① BASE IMAGE — Ken Burns: scale 1 → 1.08, 20s infinite alternate */}
         <motion.div
-          className="absolute inset-0"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('/hero_bg.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat',
+            backgroundImage: `url('./hero_bg.png')`,
             willChange: 'transform',
           }}
           animate={{ scale: [1, 1.08] }}

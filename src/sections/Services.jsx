@@ -14,31 +14,31 @@ const services = [
     icon: MdOutlineVilla,
     title: 'Spacious Hall',
     desc: 'Grand halls configured for any occasion, from intimate ceremonies to lavish receptions.',
-    img: '/hall_service.png',
+    img: './hall_service.png',
   },
   {
     icon: MdOutlineRestaurant,
     title: 'Catering Services',
     desc: 'Exquisite multi-cuisine fine dining customized to your preferences and dietary needs.',
-    img: '/catering_service.png',
+    img: './catering_service.png',
   },
   {
     icon: MdOutlineLightbulb,
     title: 'Décor & Ambience',
     desc: 'Lush floral arrangements and thematic décor tailored to your unique love story.',
-    img: '/decor_service.png',
+    img: './decor_service.png',
   },
   {
     icon: MdOutlineAudiotrack,
     title: 'Sound & Lighting',
     desc: 'Concert-style sound and lighting systems for an unforgettable sensory experience.',
-    img: '/sound_service.png',
+    img: './sound_service.png',
   },
   {
     icon: MdOutlineLocalParking,
     title: 'Valet Parking',
     desc: 'Secured luxury parking facility ensuring seamless comfort for all your guests.',
-    img: '/parking_service.png',
+    img: './parking_service.png',
   },
 ]
 

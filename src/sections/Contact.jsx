@@ -37,12 +37,11 @@ export default function Contact() {
           PREMIUM BACKGROUND — mandap image with deep luxury treatment
       ═══════════════════════════════════════ */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/mandap_hero.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 25%',
+          backgroundImage: `url('./mandap_hero.png')`,
           filter: 'brightness(0.35) contrast(1.1) saturate(0.75)',
+          backgroundPosition: 'center 25%',
         }}
       />
 
